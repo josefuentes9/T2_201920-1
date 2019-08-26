@@ -2,9 +2,10 @@ package model.logic;
 
 import java.util.ArrayList;
 
-import model.data_structures.Cola;
-import model.data_structures.ICola;
-import model.data_structures.Pila;
+import model.data_structures.Stack;
+import model.data_structures.Queue;
+import model.data_structures.IQueue;
+import model.data_structures.IStack;
 
 /**
  * Definicion del modelo del mundo
@@ -14,8 +15,8 @@ public class MVCModelo {
 	/**
 	 * Atributos del modelo del mundo
 	 */
-	private ArrayList<Cola<Viaje>> datosCola;
-	private ArrayList<Pila<Viaje>> datosPila;
+	private ArrayList<Queue<Viaje>> datosCola;
+	private ArrayList<Stack<Viaje>> datosPila;
 
 	private int tamano;
 	private Viaje viaje;
@@ -25,13 +26,13 @@ public class MVCModelo {
 	 */
 	public MVCModelo()
 	{
-		datosCola = new ArrayList< Cola<Viaje>>();
-		datosCola.add(new Cola<Viaje>());
-		datosCola.add(new Cola<Viaje>());
+		datosCola = new ArrayList< Queue<Viaje>>();
+		datosCola.add(new Queue<Viaje>());
+		datosCola.add(new Queue<Viaje>());
 
-		datosPila = new ArrayList< Pila<Viaje>>();
-		datosPila.add(new Pila<Viaje>());
-		datosPila.add(new Pila<Viaje>());
+		datosPila = new ArrayList< Stack<Viaje>>();
+		datosPila.add(new Stack<Viaje>());
+		datosPila.add(new Stack<Viaje>());
 	}
 	/**
 	 * Servicio de consulta de numero de elementos presentes en el modelo 
