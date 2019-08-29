@@ -2,7 +2,7 @@ package model.data_structures;
 
 import java.io.Serializable;
 
-public class Node <T> implements Serializable{
+public abstract class Node <T> implements Serializable{
 	// -----------------------------------------------------------------
 	// Atributos
 	// -----------------------------------------------------------------

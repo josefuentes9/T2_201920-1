@@ -60,69 +60,7 @@ public class MVCModelo {
 		reader.close();
 	}
 
-	/**
-	 * Requerimiento de agregar dato
-	 * @param dato
-	 */
-	/**
-	public void agregar(Viaje v, int lista)
-	{	
-		datos.get(lista).agregar(v);
-	}
-
-	/**
-	 * Requerimiento buscar dato
-	 * @param <T>
-	 * @param dato Dato a buscar
-	 * @return 
-	 * @return dato encontrado
-	 */
-	/*
-	public Viaje buscar(int pos, int lista)
-	{
-		return datosCola.get(lista).getElemento(pos);
-	}
-
-	/**
-	 * Requerimiento eliminar dato
-	 * @param dato Dato a eliminar
-	 * @return dato eliminado
-	 */
-	/*
-	public void eliminar(int pos, int lista)
-	{
-		datos.get(lista).remove(pos);
-	}
-
-	public ArregloDinamico<Viaje> nuevosServicios(int mes, int zona)
-	{
-
-		ArregloDinamico<Viaje> pedidos= new ArregloDinamico<Viaje>();
-		if(mes<=3)
-		{
-			for(Viaje i: datos.get(0))
-			{
-				if(i.getSourceid()==zona)
-				{
-					pedidos.agregar(i);
-				}
-			}
-		}
-		else
-		{
-			for(Viaje i: datos.get(1))
-			{
-				if(i.getSourceid()==zona)
-				{
-					pedidos.agregar(i);
-				}
-			}
-		}
-
-		return pedidos;
-
-	}
-	*/
+	
 	public Queue<Viaje> grupoGrandeHora(int hora) {
 		// TODO Auto-generated method stub
 		ArrayList<Queue<Viaje>> aux2=new ArrayList<Queue<Viaje>>();
