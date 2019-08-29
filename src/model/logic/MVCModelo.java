@@ -78,7 +78,7 @@ public class MVCModelo {
 	 */
 	public Viaje buscar(int pos, int lista)
 	{
-		return datosCola.get(lista).darElemento(pos);
+		return datosCola.get(lista).getElemento(pos);
 	}
 
 	/**
@@ -124,7 +124,8 @@ public class MVCModelo {
 		ArrayList<Queue<Viaje>> aux2=new ArrayList<Queue<Viaje>>();
 		Queue<Viaje> aux=new Queue<Viaje>();
 		double mayor=hora;
-		while(datosCola.get(0).size()!=0){
+		for (int i=0;i<=1;i++){
+		while(datosCola.get(i).size()!=0){
 
 			Viaje a=datosCola.get(0).dequeue();
 			if(a.getHod()>=mayor){
@@ -136,6 +137,7 @@ public class MVCModelo {
 				mayor=hora;
 				aux=null;
 			}
+		}
 		}
 		int tam=0;
 		Queue <Viaje>c=null;
@@ -152,13 +154,13 @@ public class MVCModelo {
 	public Queue<Viaje> nViajesHora(int h, int n) {
 		// TODO Auto-generated method stub
 		Queue<Viaje> aux=new Queue<Viaje>();
-		
+		for(int i=0;i<=1;i++){
 		while(datosPila.get(0).size()!=0){
 			Viaje a=datosPila.get(0).pop();
-			if(a.getHod()>=h){
+			if(a.getHod()==h){
 				aux.enqueue(a);
 			}
-			
+		}	
 		}
 		int contador=aux.size()-n;
 		while(contador!=0){
@@ -166,7 +168,8 @@ public class MVCModelo {
 			contador--;
 		}
 		
-		return aux;
+		return aux;  
+		// esto
 	}
 
 }
