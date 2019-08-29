@@ -1,6 +1,9 @@
 package model.logic;
 
+import java.io.FileReader;
 import java.util.ArrayList;
+
+import com.opencsv.CSVReader;
 
 import model.data_structures.Stack;
 import model.data_structures.Queue;
@@ -50,37 +53,11 @@ public class MVCModelo {
 		while ((nextLine = reader.readNext()) != null) {
 			// nextLine[] is an array of values from the line
 
-			datosCola.get(lista).agregarUltimo(new Viaje(nextLine[0],nextLine[1],nextLine[2],nextLine[3],nextLine[4],nextLine[5], nextLine[6]));
-			datosPila.get(lista).agregarPrimero(new Viaje(nextLine[0],nextLine[1],nextLine[2],nextLine[3],nextLine[4],nextLine[5], nextLine[6]));
-			
+			datosCola.get(lista).enqueue(new Viaje(nextLine[0],nextLine[1],nextLine[2],nextLine[3],nextLine[4],nextLine[5], nextLine[6]));
+			datosPila.get(lista).push(new Viaje(nextLine[0],nextLine[1],nextLine[2],nextLine[3],nextLine[4],nextLine[5], nextLine[6]));
+
 		}
 		reader.close();
-	}
-
-	public int darViajesMes(double mes)
-	{
-		int c=0;
-		if(mes<=3)
-		{
-			for(Viaje viaje: datos.get(0))
-			{
-				if(viaje.getMonth()==mes)
-				{
-					c++;
-				}
-			}
-		}
-		else if(mes>3)
-		{
-			for(Viaje viaje: datos.get(0))
-			{
-				if(viaje.getMonth()==mes)
-				{
-					c++;
-				}
-			}
-		}
-		return c;
 	}
 
 	/**
@@ -141,6 +118,55 @@ public class MVCModelo {
 
 		return pedidos;
 
+	}
+	public Queue<Viaje> grupoGrandeHora(int hora) {
+		// TODO Auto-generated method stub
+		ArrayList<Queue<Viaje>> aux2=new ArrayList<Queue<Viaje>>();
+		Queue<Viaje> aux=new Queue<Viaje>();
+		double mayor=hora;
+		while(datosCola.get(0).size()!=0){
+
+			Viaje a=datosCola.get(0).dequeue();
+			if(a.getHod()>=mayor){
+				aux.enqueue(a);
+				mayor=a.getHod();
+			}
+			else{
+				aux2.add(aux);
+				mayor=hora;
+				aux=null;
+			}
+		}
+		int tam=0;
+		Queue <Viaje>c=null;
+		for(int i=0;i<aux2.size();i++)
+		{
+			if(tam<aux2.get(i).size())
+			{
+				tam=aux2.get(i).size();
+				c=aux2.get(i);
+			}
+		}
+		return c;
+	}
+	public Queue<Viaje> nViajesHora(int h, int n) {
+		// TODO Auto-generated method stub
+		Queue<Viaje> aux=new Queue<Viaje>();
+		
+		while(datosPila.get(0).size()!=0){
+			Viaje a=datosPila.get(0).pop();
+			if(a.getHod()>=h){
+				aux.enqueue(a);
+			}
+			
+		}
+		int contador=aux.size()-n;
+		while(contador!=0){
+			aux.dequeue();
+			contador--;
+		}
+		
+		return aux;
 	}
 
 }

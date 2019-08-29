@@ -2,7 +2,9 @@ package controller;
 
 import java.util.Scanner;
 
+import model.data_structures.Queue;
 import model.logic.MVCModelo;
+import model.logic.Viaje;
 import view.MVCView;
 
 public class Controller {
@@ -53,24 +55,29 @@ public class Controller {
 				break;
 
 			case 2:
-				view.printMessage("--------- \n Seleccione la zona: ");
-				int zona = lector.nextInt();
-				System.out.println("--------- \n Seleccione el mes: ");
-				int mes= lector.nextInt()-1;
-				ArregloDinamico<Viaje> viajes = modelo.nuevosServicios(mes, zona);
-				for(Viaje i:viajes)
+				view.printMessage("--------- \n Escriba la hora: ");
+				int hora = lector.nextInt();
+				Queue <Viaje> cola=(Queue<Viaje>) modelo.grupoGrandeHora(hora);
+				view.printMessage("El numero de viajes del grupo mas grande por la hora de parametro es "+cola.size());
+				while(cola.size()!=0)
 				{
-					view.printMessage("Zona Origen:"+i.getSourceid()+"; Zona destino:"+ i.getDstid() +"; tiempo promedio:" + i.getMean_travel_time() +"; Desviación estandar:" + i.getGeometric_standard_deviation_travel_time());
+					Viaje v=cola.dequeue();
+					view.printMessage("Informacion viaje "+ v.getHod()+ ", "+ v.getSourceid()+", "+ v.getDstid()+", "+v.getMean_travel_time());
 				}
-
-
-				view.printMessage("Fin de los viajes con zona y mes especificados");
 				break;
 
 			case 3:
-				view.printMessage("--------- \\n Seleccione el trimestre:");
-				int trimestre0 = lector.nextInt();
-				view.printMessage("El numero total de viajes es:" + modelo.darTamano(trimestre0));
+				view.printMessage("--------- \\n Escriba la hora:");
+				int h = lector.nextInt();
+				view.printMessage("--------- \\n Escriba el numero de viajes:");
+				int n = lector.nextInt();
+				Queue <Viaje> c=modelo.nViajesHora(h,n);
+				
+				while(c.size()!=0){
+					
+					Viaje v=c.dequeue();
+					view.printMessage("Informacion viaje "+ v.getHod()+ ", "+ v.getSourceid()+", "+ v.getDstid()+", "+v.getMean_travel_time());
+				}
 				break;
 
 			case 4:

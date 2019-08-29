@@ -4,7 +4,7 @@ import java.util.NoSuchElementException;
 
 
 
-public class Queue<T> implements Iterable<T>{
+public class Queue<T> {
 
 	Nodo<T> primero;
 	
