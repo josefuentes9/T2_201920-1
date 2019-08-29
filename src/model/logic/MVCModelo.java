@@ -64,6 +64,7 @@ public class MVCModelo {
 	 * Requerimiento de agregar dato
 	 * @param dato
 	 */
+	/**
 	public void agregar(Viaje v, int lista)
 	{	
 		datos.get(lista).agregar(v);
@@ -76,6 +77,7 @@ public class MVCModelo {
 	 * @return 
 	 * @return dato encontrado
 	 */
+	/*
 	public Viaje buscar(int pos, int lista)
 	{
 		return datosCola.get(lista).getElemento(pos);
@@ -86,6 +88,7 @@ public class MVCModelo {
 	 * @param dato Dato a eliminar
 	 * @return dato eliminado
 	 */
+	/*
 	public void eliminar(int pos, int lista)
 	{
 		datos.get(lista).remove(pos);
@@ -119,6 +122,7 @@ public class MVCModelo {
 		return pedidos;
 
 	}
+	*/
 	public Queue<Viaje> grupoGrandeHora(int hora) {
 		// TODO Auto-generated method stub
 		ArrayList<Queue<Viaje>> aux2=new ArrayList<Queue<Viaje>>();

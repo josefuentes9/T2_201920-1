@@ -50,8 +50,8 @@ public class Controller {
 				}
 				view.printMessage("Lista creada");
 				view.printMessage("El total de viajes (líneas) leídos para el primer trimestre del año es "+modelo.darTamano(0));
-				view.printMessage("Informacion primer viaje: "+ modelo.buscar(0, 0).getSourceid()+", "+modelo.buscar(0, 0).getDstid()+", "+modelo.buscar(0, 0).getHod()+", "+modelo.buscar(0, 0).getMean_travel_time());
-				view.printMessage("Informacion primer viaje: "+ modelo.buscar(modelo.darTamano(1), 1).getSourceid()+", "+modelo.buscar(modelo.darTamano(1), 1).getDstid()+", "+modelo.buscar(modelo.darTamano(1), 1).getHod()+", "+modelo.buscar(modelo.darTamano(1), 1).getMean_travel_time());
+				//view.printMessage("Informacion primer viaje: "+ modelo.buscar(0, 0).getSourceid()+", "+modelo.buscar(0, 0).getDstid()+", "+modelo.buscar(0, 0).getHod()+", "+modelo.buscar(0, 0).getMean_travel_time());
+				//view.printMessage("Informacion primer viaje: "+ modelo.buscar(modelo.darTamano(1), 1).getSourceid()+", "+modelo.buscar(modelo.darTamano(1), 1).getDstid()+", "+modelo.buscar(modelo.darTamano(1), 1).getHod()+", "+modelo.buscar(modelo.darTamano(1), 1).getMean_travel_time());
 				break;
 
 			case 2:
@@ -80,6 +80,7 @@ public class Controller {
 				}
 				break;
 
+			/*
 			case 4:
 				view.printMessage("--------- \nDar Seleccionar el mes deseado: ");
 				int mes2 = lector.nextInt();
@@ -96,7 +97,7 @@ public class Controller {
 				double porcentaje = (numero*100)/modelo.darTamano(trimestre1);
 				view.printMessage("El total de viajes del mes "+mes2+ " Es: "+numero+ ". Y su porcentaje es: "+porcentaje );
 				break;
-
+			
 			case 5: 
 				view.printMessage("--------- \n Seleccione la zona: ");
 				int zona1 = lector.nextInt();
@@ -123,7 +124,7 @@ public class Controller {
 				double porcentaje2 = (cont0*100)/modelo.darTamano(trimestre2);
 				view.printMessage("El total de viajes del mes "+mes3+ " y zona de origen: "+zona1+" Es: "+cont0+ ". Y su porcentaje es: "+porcentaje2);
 				break;	
-
+			*/
 			case 6: 
 				System.out.println("--------- \n Hasta pronto !! \n---------"); 
 				lector.close();
